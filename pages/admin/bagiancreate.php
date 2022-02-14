@@ -80,21 +80,18 @@ if (isset($_POST['button_create'])) {
                 <div>
                     <label for="nama_lengkap">Nama Kepala Bagian</label>
                     <select name="nama_lengkap" class="form-select form-control text-dark" aria-label="Default select example">
-                        <?php
-                        while ($kepalabagian = $stmt_karyawan->fetch(PDO::FETCH_ASSOC)) {
-                            echo "<option value=\"" . $kepalabagian['id'] . "\">" . $kepalabagian['nama_lengkap'] . "</option>";
-                        }
+                        <?php while ($kepalabagian = $stmt_karyawan->fetch(PDO::FETCH_ASSOC)) : ?>
+                            <option value="<?= $kepalabagian['id'] ?>"><?= $kepalabagian['nama_lengkap'] ?></option>
+                        <?php endwhile; ?>
                         ?>
                     </select>
                 </div>
                 <div class="mt-3">
                     <label for="nama_lokasi">Nama Lokasi Bagian</label>
                     <select name="nama_lokasi" class="form-select form-control text-dark" aria-label="Default select example">
-                        <?php
-                        while ($lokasi = $stmt_lokasi->fetch(PDO::FETCH_ASSOC)) {
-                            echo "<option value=\"" . $lokasi['id'] . "\">" . $lokasi['nama_lokasi'] . "</option>";
-                        }
-                        ?>
+                        <?php while ($lokasi = $stmt_lokasi->fetch(PDO::FETCH_ASSOC)) : ?>
+                            <option value="<?= $lokasi['id'] ?>"><?= $lokasi['nama_lokasi'] ?></option>
+                        <?php endwhile; ?>
                     </select>
                 </div>
                 <div class="mt-3">
